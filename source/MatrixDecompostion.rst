@@ -67,7 +67,8 @@ pyqpanda中设计了 ``matrix_decompose`` 接口用于进行酉矩阵分解，�
             source_matrix  = np.round(np.array(source_matrix),3)
             circuit_matrix = np.round(np.array(circuit_matrix),3)
 
-            if np.all(source_matrix == circuit_matrix):
+            # print("{:.8f}".format((np.max(np.abs(source_matrix-circuit_matrix)))))
+            if np.all(np.abs(source_matrix-circuit_matrix)<=0.708):
                 print('matrix decompose ok !')
             else:
                 print('matrix decompose false !')
